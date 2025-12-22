@@ -20,6 +20,13 @@ algorithm-cpp/
 │   ├── silver/
 │   └── gold/
 │
+├── SWEA/
+│   ├── D1/
+│   ├── D2/
+│   ├── D3/
+│   ├── D4/
+│   └── D5/
+│
 ├── programmers/
 │   ├── Lv.1/
 │   ├── Lv.2/
