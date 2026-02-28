@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <queue>    // priority_queue
-#include <utility>  // pair
 
 using namespace std;
 
@@ -39,16 +38,19 @@ int main() {
     pq.push({0, start});
 
     while (!pq.empty()) {
-        auto [cost, cur] = pq.top();
+        int cost = pq.top().first;
+        int cur = pq.top().second;
         pq.pop();
 
         if (dist[cur] < cost) continue;
 
-        for (auto [nxt, w] : adj[cur]) {
-            int ncost = cost + w;
-            if (dist[nxt] > ncost) {
+        for (pair<int, int> nxtpair : adj[cur]) {
+            int ncost = dist[cur] + nxtpair.second;
+            int nxt = nxtpair.first;
+
+            if (ncost < dist[nxt]) {
                 dist[nxt] = ncost;
-                pq.push({ncost, nxt});
+                pq.push({ ncost, nxt });
             }
         }
     }
